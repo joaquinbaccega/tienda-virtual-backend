@@ -13,6 +13,10 @@ import MainLayout from "../layouts/MainLayout.astro";
     <!-- Aquí se renderizarán los productos -->
   </div>
 
+  <div class="flex justify-end py-4">
+    <p class="text-lg font-semibold text-gray-800 dark:text-gray-200">Subtotal: $<span id="subtotal">0.00</span></p>
+  </div>
+
   <button
     class="comprar mt-8 py-3 px-6 bg-amber-600 text-white font-semibold rounded-lg shadow-md hover:bg-amber-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-600 dark:bg-amber-700 dark:hover:bg-amber-800 dark:focus:ring-amber-800"
   >
@@ -22,74 +26,100 @@ import MainLayout from "../layouts/MainLayout.astro";
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       let products = localStorage.getItem("productCart");
+      let subtotal = 0;
       if (products) {
         products = JSON.parse(products);
         const productsContainer = document.getElementById("products-container");
         products.forEach((product) => {
+          const quantity = product.quantity || 1;
+          const totalPrice = (product.price * quantity);
+          subtotal += parseFloat(totalPrice);
           const productElement = document.createElement("div");
           productElement.classList.add("product-item", "border", "p-4", "rounded-lg", "bg-white", "dark:bg-gray-800");
           productElement.innerHTML = `
-                        <img src="${product.image}" alt="${product.name}" class="object-cover h-40 w-full rounded-t-lg">
-                        <h3 class="mt-4 text-lg font-semibold text-gray-800 dark:text-gray-200">${product.name}</h3>
-                        <p class="text-gray-600 dark:text-gray-400">Precio: $${product.price}</p>
-                        <p class="text-gray-600 dark:text-gray-400">Cantidad: ${product.quantity || 1}</p>
-                    `;
+            <img src="${product.image}" alt="${product.name}" class="object-cover h-40 w-full rounded-t-lg">
+            <h3 class="mt-4 text-lg font-semibold text-gray-800 dark:text-gray-200">${product.name}</h3>
+            <p class="text-gray-600 dark:text-gray-400">Precio unitario: $${product.price}</p>
+            <p class="text-gray-600 dark:text-gray-400">Cantidad: ${quantity}</p>
+            <p class="text-gray-600 dark:text-gray-400">Precio total: $${totalPrice}</p>
+          `;
           productsContainer.appendChild(productElement);
         });
+
+        // Actualizar subtotal en la interfaz
+        document.getElementById("subtotal").textContent = subtotal;
+      } else {
+        console.error("No se encontraron productos en el carrito.");
       }
     });
 
     document.querySelectorAll("button.comprar").forEach((button) => {
-      button.addEventListener("click", () => {
-        fetch("http://localhost:8080/api/carrito/", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            // "access_token": localStorage.getItem("access_token"),
-          },
-          body: JSON.stringify({
-            user: "Elias",
-          }),
-        })
-          .then((response) => response.json())
-          .then((data) => {
-            console.log(data);
-            localStorage.setItem("order", data.success);
-            // localStorage.removeItem("productos");
+      button.addEventListener("click", async () => { // Convertir la función en async
+        try {
+          const responseCarrito = await fetch("http://localhost:8080/api/carrito/", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              // "access_token": localStorage.getItem("access_token"),
+            },
+            body: JSON.stringify({
+              user: "Elias",
+            }),
           });
 
-        let products = localStorage.getItem("productCart");
-        if (products) {
-            const dataArray = []
-          const data = JSON.parse(products);
-            
+          const dataCarrito = await responseCarrito.json();
+          console.log(dataCarrito);
 
-          for (let i = 0; i < data.length; i++) {
-            const product = {
-              title: data[i].name,
-              price: data[i].price,
-              categoria:data[i].categoria,
-              quantity: data[i].quantity,
-            };
-            dataArray.push(product)
-            console.log(JSON.stringify(product));
-            fetch(`http://localhost:8080/api/carrito/${localStorage.getItem("order")}/productos`, {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                // access_token: localStorage.getItem("access_token"),
-              },
-              credentials: "include",
-              body: JSON.stringify(dataArray),
-            })
-              .then((response) => response.json())
-              .then((data) => {
-                console.log(data);
-                localStorage.removeItem("productCart");
+          if (dataCarrito && dataCarrito.success) {
+            localStorage.setItem("order", dataCarrito.success);
+            // localStorage.removeItem("productos");
+
+            let productsJson = localStorage.getItem("productCart");
+            let products = productsJson ? JSON.parse(productsJson) : [];
+
+            if (products.length > 0) {
+              const productsMap = {};
+
+              products.forEach((product) => {
+                if (productsMap[product.id]) {
+                  productsMap[product.id].quantity += product.quantity;
+                } else {
+                  productsMap[product.id] = { ...product };
+                }
               });
+
+              const consolidatedProducts = Object.values(productsMap);
+              
+              const dataArray = consolidatedProducts.map((productData) => ({
+                id: productData.id,
+                title: productData.name,
+                price: productData.price,
+                quantity: productData.quantity,
+              }));
+
+              const responseProductos = await fetch(`http://localhost:8080/api/carrito/${localStorage.getItem("order")}/products`, {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  // access_token: localStorage.getItem("access_token"),
+                },
+                credentials: "include",
+                body: JSON.stringify(dataArray),
+              });
+
+              const dataProductos = await responseProductos.json();
+              console.log(dataProductos);
+              localStorage.removeItem("productCart");
+              window.location.href = "/carrito";
+            }
+          } else {
+            console.error("No se pudo generar el ID del carrito correctamente.");
           }
+        } catch (error) {
+          console.error("Error en la operación:", error);
         }
       });
     });
   </script>
 </MainLayout>
+

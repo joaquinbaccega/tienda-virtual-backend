@@ -17,7 +17,7 @@ routerCart.delete("/:id",auth , deleteCart)
 routerCart.get("/:id/products", productsFromCart)
 
 //AGREGAR UN PRODUCTO MEDIANTE ID(TOMADO DEL BODY) AL CARRTIO MEDIANTE SU ID
-routerCart.post("/:id/products",auth , addProductToCart);
+routerCart.post("/:id/products" , addProductToCart);
 
 //ELIMINAR UN PRODUCTO DEL CARRITO (ID) MEDIANTE EL ID DEL PRODUCTO
 

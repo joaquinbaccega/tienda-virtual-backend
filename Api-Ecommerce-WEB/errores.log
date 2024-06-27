@@ -1,1 +1,181 @@
 [2024-06-27T12:47:37.162] [ERROR] custom - There are no products
+[2024-06-27T15:15:42.092] [ERROR] custom - TypeError: Cannot read properties of null (reading 'products')
+[2024-06-27T15:16:38.234] [ERROR] custom - CastError: Cast to ObjectId failed for value "null" (type string) at path "_id" for model "carts"
+    at SchemaObjectId.cast (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\schema\objectId.js:250:11)
+    at SchemaType.applySetters (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\schemaType.js:1236:12)
+    at SchemaType.castForQuery (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\schemaType.js:1653:17)
+    at cast (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\cast.js:375:32)
+    at Query.cast (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\query.js:4798:12)
+    at Query._castConditions (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\query.js:2206:10)
+    at model.Query._findOne (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\query.js:2526:8)
+    at model.Query.exec (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\query.js:4342:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async CartDaoMongoDb.getById (file:///C:/Users/lauta/Downloads/tienda-virtual-backend-main/tienda-virtual-backend-main/Api-Ecommerce-WEB/src/data_Persistence/container/mongoDbContainer.js:59:29) {
+  stringValue: '"null"',
+  messageFormat: undefined,
+  kind: 'ObjectId',
+  value: 'null',
+  path: '_id',
+  reason: BSONError: input must be a 24 character hex string, 12 byte Uint8Array, or an integer
+      at new ObjectId (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\bson\lib\bson.cjs:2361:23)
+      at castObjectId (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at SchemaObjectId.cast (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\schema\objectId.js:248:12)
+      at SchemaType.applySetters (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\schemaType.js:1236:12)
+      at SchemaType.castForQuery (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\schemaType.js:1653:17)
+      at cast (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\cast.js:375:32)
+      at Query.cast (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\query.js:4798:12)
+      at Query._castConditions (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\query.js:2206:10)
+      at model.Query._findOne (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\query.js:2526:8)
+      at model.Query.exec (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\query.js:4342:80),
+  valueType: 'string'
+}
+[2024-06-27T15:16:38.241] [ERROR] custom - TypeError: existingProducts is not iterable
+[2024-06-27T15:20:39.693] [ERROR] custom - TypeError: Cannot read properties of null (reading 'products')
+[2024-06-27T15:22:15.745] [ERROR] custom - TypeError: Cannot read properties of null (reading 'products')
+[2024-06-27T15:34:13.744] [ERROR] custom - TypeError: existingProducts.add is not a function
+[2024-06-27T15:39:21.616] [ERROR] custom - CastError: Cast to ObjectId failed for value "null" (type string) at path "_id" for model "carts"
+    at SchemaObjectId.cast (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\schema\objectId.js:250:11)
+    at SchemaType.applySetters (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\schemaType.js:1236:12)
+    at SchemaType.castForQuery (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\schemaType.js:1653:17)
+    at cast (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\cast.js:375:32)
+    at Query.cast (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\query.js:4798:12)
+    at Query._castConditions (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\query.js:2206:10)
+    at model.Query._findOne (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\query.js:2526:8)
+    at model.Query.exec (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\query.js:4342:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async CartDaoMongoDb.getById (file:///C:/Users/lauta/Downloads/tienda-virtual-backend-main/tienda-virtual-backend-main/Api-Ecommerce-WEB/src/data_Persistence/container/mongoDbContainer.js:59:29) {
+  stringValue: '"null"',
+  messageFormat: undefined,
+  kind: 'ObjectId',
+  value: 'null',
+  path: '_id',
+  reason: BSONError: input must be a 24 character hex string, 12 byte Uint8Array, or an integer
+      at new ObjectId (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\bson\lib\bson.cjs:2361:23)
+      at castObjectId (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at SchemaObjectId.cast (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\schema\objectId.js:248:12)
+      at SchemaType.applySetters (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\schemaType.js:1236:12)
+      at SchemaType.castForQuery (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\schemaType.js:1653:17)
+      at cast (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\cast.js:375:32)
+      at Query.cast (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\query.js:4798:12)
+      at Query._castConditions (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\query.js:2206:10)
+      at model.Query._findOne (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\query.js:2526:8)
+      at model.Query.exec (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\query.js:4342:80),
+  valueType: 'string'
+}
+[2024-06-27T15:39:21.626] [ERROR] custom - CastError: Cast to ObjectId failed for value "null" (type string) at path "_id" for model "carts"
+    at SchemaObjectId.cast (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\schema\objectId.js:250:11)
+    at SchemaType.applySetters (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\schemaType.js:1236:12)
+    at SchemaType.castForQuery (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\schemaType.js:1653:17)
+    at cast (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\cast.js:375:32)
+    at Query.cast (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\query.js:4798:12)
+    at Query._castConditions (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\query.js:2206:10)
+    at model.Query._updateThunk (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\query.js:3765:8)
+    at model.Query._updateOne (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\query.js:3869:23)
+    at model.Query.exec (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\query.js:4342:80)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  stringValue: '"null"',
+  messageFormat: undefined,
+  kind: 'ObjectId',
+  value: 'null',
+  path: '_id',
+  reason: BSONError: input must be a 24 character hex string, 12 byte Uint8Array, or an integer
+      at new ObjectId (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\bson\lib\bson.cjs:2361:23)
+      at castObjectId (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\cast\objectid.js:25:12)
+      at SchemaObjectId.cast (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\schema\objectId.js:248:12)
+      at SchemaType.applySetters (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\schemaType.js:1236:12)
+      at SchemaType.castForQuery (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\schemaType.js:1653:17)
+      at cast (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\cast.js:375:32)
+      at Query.cast (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\query.js:4798:12)
+      at Query._castConditions (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\query.js:2206:10)
+      at model.Query._updateThunk (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\query.js:3765:8)
+      at model.Query._updateOne (C:\Users\lauta\Downloads\tienda-virtual-backend-main\tienda-virtual-backend-main\Api-Ecommerce-WEB\node_modules\mongoose\lib\query.js:3869:23),
+  valueType: 'string'
+}
+[2024-06-27T16:47:41.772] [ERROR] custom - Error: Invalid login: 535 Authentication failed
+    at SMTPConnection._formatError (E:\EcommerceWeb-backFront\Api-Ecommerce-WEB\node_modules\.pnpm\nodemailer@6.9.14\node_modules\nodemailer\lib\smtp-connection\index.js:798:19)
+    at SMTPConnection._actionAUTHComplete (E:\EcommerceWeb-backFront\Api-Ecommerce-WEB\node_modules\.pnpm\nodemailer@6.9.14\node_modules\nodemailer\lib\smtp-connection\index.js:1577:34)
+    at SMTPConnection.<anonymous> (E:\EcommerceWeb-backFront\Api-Ecommerce-WEB\node_modules\.pnpm\nodemailer@6.9.14\node_modules\nodemailer\lib\smtp-connection\index.js:554:26)
+    at SMTPConnection._processResponse (E:\EcommerceWeb-backFront\Api-Ecommerce-WEB\node_modules\.pnpm\nodemailer@6.9.14\node_modules\nodemailer\lib\smtp-connection\index.js:982:20)
+    at SMTPConnection._onData (E:\EcommerceWeb-backFront\Api-Ecommerce-WEB\node_modules\.pnpm\nodemailer@6.9.14\node_modules\nodemailer\lib\smtp-connection\index.js:763:14)
+    at SMTPConnection._onSocketData (E:\EcommerceWeb-backFront\Api-Ecommerce-WEB\node_modules\.pnpm\nodemailer@6.9.14\node_modules\nodemailer\lib\smtp-connection\index.js:195:44)
+    at TLSSocket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Readable.push (node:internal/streams/readable:390:5) {
+  code: 'EAUTH',
+  response: '535 Authentication failed',
+  responseCode: 535,
+  command: 'AUTH PLAIN'
+}
+[2024-06-27T16:51:09.367] [ERROR] custom - Error: Invalid login: 535 Authentication failed
+    at SMTPConnection._formatError (E:\EcommerceWeb-backFront\Api-Ecommerce-WEB\node_modules\.pnpm\nodemailer@6.9.14\node_modules\nodemailer\lib\smtp-connection\index.js:798:19)
+    at SMTPConnection._actionAUTHComplete (E:\EcommerceWeb-backFront\Api-Ecommerce-WEB\node_modules\.pnpm\nodemailer@6.9.14\node_modules\nodemailer\lib\smtp-connection\index.js:1577:34)
+    at SMTPConnection.<anonymous> (E:\EcommerceWeb-backFront\Api-Ecommerce-WEB\node_modules\.pnpm\nodemailer@6.9.14\node_modules\nodemailer\lib\smtp-connection\index.js:554:26)
+    at SMTPConnection._processResponse (E:\EcommerceWeb-backFront\Api-Ecommerce-WEB\node_modules\.pnpm\nodemailer@6.9.14\node_modules\nodemailer\lib\smtp-connection\index.js:982:20)
+    at SMTPConnection._onData (E:\EcommerceWeb-backFront\Api-Ecommerce-WEB\node_modules\.pnpm\nodemailer@6.9.14\node_modules\nodemailer\lib\smtp-connection\index.js:763:14)
+    at SMTPConnection._onSocketData (E:\EcommerceWeb-backFront\Api-Ecommerce-WEB\node_modules\.pnpm\nodemailer@6.9.14\node_modules\nodemailer\lib\smtp-connection\index.js:195:44)
+    at TLSSocket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Readable.push (node:internal/streams/readable:390:5) {
+  code: 'EAUTH',
+  response: '535 Authentication failed',
+  responseCode: 535,
+  command: 'AUTH PLAIN'
+}
+[2024-06-27T16:54:30.983] [ERROR] custom - Error: Invalid login: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials 41be03b00d2f7-72c6d1f7788sm78617a12.86 - gsmtp
+    at SMTPConnection._formatError (E:\EcommerceWeb-backFront\Api-Ecommerce-WEB\node_modules\.pnpm\nodemailer@6.9.14\node_modules\nodemailer\lib\smtp-connection\index.js:798:19)
+    at SMTPConnection._actionAUTHComplete (E:\EcommerceWeb-backFront\Api-Ecommerce-WEB\node_modules\.pnpm\nodemailer@6.9.14\node_modules\nodemailer\lib\smtp-connection\index.js:1577:34)
+    at SMTPConnection.<anonymous> (E:\EcommerceWeb-backFront\Api-Ecommerce-WEB\node_modules\.pnpm\nodemailer@6.9.14\node_modules\nodemailer\lib\smtp-connection\index.js:554:26)
+    at SMTPConnection._processResponse (E:\EcommerceWeb-backFront\Api-Ecommerce-WEB\node_modules\.pnpm\nodemailer@6.9.14\node_modules\nodemailer\lib\smtp-connection\index.js:982:20)
+    at SMTPConnection._onData (E:\EcommerceWeb-backFront\Api-Ecommerce-WEB\node_modules\.pnpm\nodemailer@6.9.14\node_modules\nodemailer\lib\smtp-connection\index.js:763:14)
+    at SMTPConnection._onSocketData (E:\EcommerceWeb-backFront\Api-Ecommerce-WEB\node_modules\.pnpm\nodemailer@6.9.14\node_modules\nodemailer\lib\smtp-connection\index.js:195:44)
+    at TLSSocket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Readable.push (node:internal/streams/readable:390:5) {
+  code: 'EAUTH',
+  response: '535-5.7.8 Username and Password not accepted. For more information, go to\n' +
+    '535 5.7.8  https://support.google.com/mail/?p=BadCredentials 41be03b00d2f7-72c6d1f7788sm78617a12.86 - gsmtp',
+  responseCode: 535,
+  command: 'AUTH PLAIN'
+}
+[2024-06-27T16:55:04.082] [ERROR] custom - Error: Invalid login: 534-5.7.9 Application-specific password required. For more information, go to
+534 5.7.9  https://support.google.com/mail/?p=InvalidSecondFactor d2e1a72fcca58-70803ecfaf3sm102605b3a.131 - gsmtp
+    at SMTPConnection._formatError (E:\EcommerceWeb-backFront\Api-Ecommerce-WEB\node_modules\.pnpm\nodemailer@6.9.14\node_modules\nodemailer\lib\smtp-connection\index.js:798:19)
+    at SMTPConnection._actionAUTHComplete (E:\EcommerceWeb-backFront\Api-Ecommerce-WEB\node_modules\.pnpm\nodemailer@6.9.14\node_modules\nodemailer\lib\smtp-connection\index.js:1577:34)
+    at SMTPConnection.<anonymous> (E:\EcommerceWeb-backFront\Api-Ecommerce-WEB\node_modules\.pnpm\nodemailer@6.9.14\node_modules\nodemailer\lib\smtp-connection\index.js:554:26)
+    at SMTPConnection._processResponse (E:\EcommerceWeb-backFront\Api-Ecommerce-WEB\node_modules\.pnpm\nodemailer@6.9.14\node_modules\nodemailer\lib\smtp-connection\index.js:982:20)
+    at SMTPConnection._onData (E:\EcommerceWeb-backFront\Api-Ecommerce-WEB\node_modules\.pnpm\nodemailer@6.9.14\node_modules\nodemailer\lib\smtp-connection\index.js:763:14)
+    at SMTPConnection._onSocketData (E:\EcommerceWeb-backFront\Api-Ecommerce-WEB\node_modules\.pnpm\nodemailer@6.9.14\node_modules\nodemailer\lib\smtp-connection\index.js:195:44)
+    at TLSSocket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:559:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:510:3)
+    at Readable.push (node:internal/streams/readable:390:5) {
+  code: 'EAUTH',
+  response: '534-5.7.9 Application-specific password required. For more information, go to\n' +
+    '534 5.7.9  https://support.google.com/mail/?p=InvalidSecondFactor d2e1a72fcca58-70803ecfaf3sm102605b3a.131 - gsmtp',
+  responseCode: 534,
+  command: 'AUTH PLAIN'
+}
+[2024-06-27T17:00:13.482] [ERROR] custom - ReferenceError: mensaje is not defined
+    at file:///E:/EcommerceWeb-backFront/Api-Ecommerce-WEB/src/utils/nodemailer.js:61:49
+    at ModuleJob.run (node:internal/modules/esm/module_job:222:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:316:24)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:123:5)
+[2024-06-27T17:00:14.824] [ERROR] custom - ReferenceError: mensaje is not defined
+    at file:///E:/EcommerceWeb-backFront/Api-Ecommerce-WEB/src/utils/nodemailer.js:61:49
+    at ModuleJob.run (node:internal/modules/esm/module_job:222:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:316:24)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:123:5)
+[2024-06-27T17:01:01.216] [ERROR] custom - ReferenceError: mensaje is not defined
+    at file:///E:/EcommerceWeb-backFront/Api-Ecommerce-WEB/src/utils/nodemailer.js:60:49
+    at ModuleJob.run (node:internal/modules/esm/module_job:222:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:316:24)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:123:5)
+[2024-06-27T17:02:11.440] [ERROR] custom - ReferenceError: mensaje is not defined
+    at file:///E:/EcommerceWeb-backFront/Api-Ecommerce-WEB/src/utils/nodemailer.js:70:49
+    at ModuleJob.run (node:internal/modules/esm/module_job:222:25)
+    at async ModuleLoader.import (node:internal/modules/esm/loader:316:24)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:123:5)

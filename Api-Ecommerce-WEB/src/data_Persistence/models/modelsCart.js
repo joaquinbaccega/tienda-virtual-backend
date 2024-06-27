@@ -9,10 +9,7 @@ const cartsSchema = new Schema({
         {
             type: Object
         }
-    ],
-    quantity:{
-        type: Number
-    }
+    ]
 })
 
 export default model("carts", cartsSchema);

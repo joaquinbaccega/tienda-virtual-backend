@@ -47,12 +47,13 @@ importers:
       mongoose:
         specifier: ^8.4.3
         version: 8.4.3
-      nodemailer:
-        specifier: ^6.9.0
-        version: 6.9.14
       twilio:
         specifier: ^5.2.0
         version: 5.2.0
+    devDependencies:
+      nodemailer:
+        specifier: ^6.9.14
+        version: 6.9.14
 
 packages:
 

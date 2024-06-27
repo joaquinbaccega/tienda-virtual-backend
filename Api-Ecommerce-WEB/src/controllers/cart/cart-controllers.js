@@ -63,39 +63,45 @@ const productsFromCart = async(req, res) =>{
         
         : res.status(404).json(message= `The Cart whit ID: ${id} was not found`);
 
+
+
     } catch (error) {
         return res.status(500).send(logger.error(`${error}`))
     }
 }
 
-const addProductToCart = async(req, res) =>{
+const addProductToCart = async(req, res) => {
     try {
-
-        let user= req.session.user
-
-        const {id}= req.params;
-        const {body} = req;
+        let user = req.session.user;
+        const { id } = req.params;
+        const { body } = req;
 
         const carritoData = await carrito.getById(id);
 
-        const existingProducts = carritoData.products;
+        const existingProducts = carritoData?.products || [];
+        let newProducts;
 
-        const newProducts = [...existingProducts, body];
+        if (Array.isArray(body)) {
 
-        if(newProducts){
-            let productAdded = await carrito.updateById(id, { products: newProducts })
-            productAdded
-            ? res.status(200).json({Success: "Product added"})
-            : res.status(404).send(logger.error("there was a problem adding the product"))
-    
-        }else{
-            res.status(404).send(logger.error("the product was not found"));
+            newProducts = [...existingProducts, ...body];
+        } else {
+
+            newProducts = [...existingProducts, body];
         }
 
+        if (newProducts) {
+            let productAdded = await carrito.updateById(id, { products: newProducts });
+            productAdded
+                ? res.status(200).json({ Success: "Product added" })
+                : res.status(404).send("There was a problem adding the product");
+        }
+
+        sendEmail({ user, products: newProducts });
     } catch (error) {
-        return res.status(500).send(logger.error(`${error}`))
+        console.error(error);
+        res.status(500).send("Server error");
     }
-}
+};
 
 const deleteProductFromCart = async(req, res) =>{
     try {
