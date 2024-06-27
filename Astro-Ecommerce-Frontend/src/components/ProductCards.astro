@@ -7,10 +7,7 @@ export interface Props {
   price: string;
 }
 
-
-const { name = "", url_key = "", image = "", price = "", id = ""} = Astro.props;
-// console.log(Astro.props);
-
+const { name = "", url_key = "", image = "", price = "", id = ""} = Astro.props as Props;
 ---
 
 <div
@@ -40,37 +37,27 @@ const { name = "", url_key = "", image = "", price = "", id = ""} = Astro.props;
       View Product
     </a>
     <button
-      class=`agregar-${id} w-full py-3 px-4 inline-flex justify-center items-center gap-2 rounded-br-xl font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-amber-700 transition-all text-sm sm:p-4 dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800`    
-      >
-      
+      class="agregar w-full py-3 px-4 inline-flex justify-center items-center gap-2 rounded-br-xl font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-amber-700 transition-all text-sm sm:p-4 dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800"
+      data-id={id} 
+      data-name={name}
+      data-url-key={url_key}
+      data-image={image}
+      data-price={price}
+    >
       Add to cart
     </button>
-    <script>
-      // Encuentra todos los botones con la clase `agregar` en la página.
-      const buttons = document.querySelectorAll(`button.agregar`);
-      console.log(buttons);
-      console.log();
-      // Maneja los clics en cada botón.
-      buttons.forEach((button) => {
-        button.addEventListener("click", () => {
-          console.log(button);
-          const product = {
-            name: "${name}",
-            url_key: "${url_key}",
-            image: "${image}",
-            price: "${price}",
-          };
-          
-          let productos = localStorage.getItem('productos');
-          if (productos) {
-            const data = JSON.parse(productos);
-            data.push(product);
-            localStorage.setItem('productos', JSON.stringify(data));
-          } else {
-            localStorage.setItem('productos', JSON.stringify([product]));
-          }
-        });
-      });
-    </script>
   </div>
 </div>
+
+<!-- Incluye el script de manejo del carrito -->
+<script type="module" src="/js/cart.js"></script>
+
+<script>
+  import { addProductToCart } from '../../public/js/cart.js';
+
+  document.querySelectorAll('button.agregar').forEach((button) => {
+    button.addEventListener('click', () => {
+      addProductToCart(button);
+    });
+  });
+</script>

@@ -3,8 +3,7 @@ const { verify } = jwt;
 
 export function auth(req, res, next) {
   const authHeader = req.session.authorization;
-  const authHeader2 = req
-  console.log('authHeader', authHeader, 'authHeader2', authHeader2);
+  console.log('authHeader', authHeader);
   if (!authHeader) {
     return res.status(401).json({
       error: "not authenticated",

@@ -25,7 +25,7 @@ const createNewCart = async(req, res) =>{
 
         const newCart = await carrito.save(body);
         newCart
-            ? res.status(200).json({success : "cart added with ID: "+ newCart._id})
+            ? res.status(200).json({success : newCart._id})
             : res.status(404).send(logger.error("There was an error creating the cart"));
 
         

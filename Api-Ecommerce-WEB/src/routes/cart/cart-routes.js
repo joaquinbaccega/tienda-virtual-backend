@@ -7,14 +7,14 @@ const routerCart = express.Router();
 
 //CREAR UN CARRITO NUEVO
 
-routerCart.post("/", auth , createNewCart);
+routerCart.post("/",  createNewCart);
 
 //ELIMINAR UN CARRITO
 
 routerCart.delete("/:id",auth , deleteCart)
 
 //LISTAR TODOS LOS PRODUCTOS DEL CARRTIO SEGUN ID
-routerCart.get("/:id/products",auth , productsFromCart)
+routerCart.get("/:id/products", productsFromCart)
 
 //AGREGAR UN PRODUCTO MEDIANTE ID(TOMADO DEL BODY) AL CARRTIO MEDIANTE SU ID
 routerCart.post("/:id/products",auth , addProductToCart);
